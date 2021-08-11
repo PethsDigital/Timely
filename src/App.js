@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./assets/css/styles.min.css";
+import Player from "./contexts/PlayerContextWrap";
+import TimeContextWrap from "./contexts/TimeContextWrap";
+import Play from "./pages/Play";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Form from "./pages/Form";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <TimeContextWrap>
+          <Player>
+            <main>
+              <Switch>
+                <Route exact path="/">
+                  <Form />
+                </Route>
+                <Route exact path="/play">
+                  <Play />
+                </Route>
+              </Switch>
+            </main>
+          </Player>
+        </TimeContextWrap>
+      </div>
+    </Router>
   );
 }
 

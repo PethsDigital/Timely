@@ -1,0 +1,36 @@
+.setTime {
+  .btn {
+    margin: 2rem auto;
+  }
+}
+.otp-input-wrap {
+  @include flex(row, center, center);
+  margin: 1rem 0;
+  .form-group {
+    width: max-content;
+    margin: 0 2rem;
+    label {
+      padding-left: 3px;
+    }
+  }
+  h1 {
+    margin-top: 1rem;
+  }
+  .otp-input {
+    height: 45px;
+    width: 65px;
+    text-align: center;
+    font-size: 25px;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    @media (max-width: 320px) {
+      height: 40px;
+      width: 45px;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+// variables
+$desktop: 1024px;
+$tablet: 900px;
+$mobile: 500px;
+
+// mixin for flexbox
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+// @media queries
+@mixin media-l {
+  @media only screen and (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media only screen and (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin media-mdfx {
+  @media only screen and (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin media-dmdfx {
+  @media only screen and (max-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin media-sm {
+  @media only screen and (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin mq($arg) {
+  @media screen and (max-width: $arg) {
+    @content;
+  }
+}
+
+// resets and general styles
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+ul {
+  list-style-type: none;
+}
+
+button,
+a {
+  cursor: pointer;
+  outline: none;
+}
+textarea {
+  resize: vertical;
+}

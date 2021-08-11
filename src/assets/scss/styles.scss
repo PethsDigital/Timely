@@ -5,6 +5,10 @@
   font-size: calc(10px + 2vmin);
   background-color: white;
   color: #222;
+  .time,
+  input[type="number"] {
+    font-family: "Orbitron", sans-serif;
+  }
   .btn {
     background: #222;
     color: white;

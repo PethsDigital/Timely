@@ -91,7 +91,11 @@ const Play = () => {
 
     // compile time in format hr:min:sec
     let timer =
-      twoDigits(hours) + ":" + twoDigits(minutes) + ":" + twoDigits(seconds);
+      twoDigits(hours) +
+      " : " +
+      twoDigits(minutes) +
+      " : " +
+      twoDigits(seconds);
 
     // update state callback
     callback({type: "updateTimeLeft", value: timer});
@@ -145,25 +149,19 @@ const Play = () => {
           <PlayerInfo
             player={player1}
             startCountDown={() => {
-              setIsPlayer2Active(false);
-              setIsPlayer1Active(true);
+              setIsPlayer1Active(!isPlayer1Active);
+              setIsPlayer2Active(!player2.active);
             }}
-            pauseCountDown={() => {
-              setIsPlayer1Active(false);
-              setIsPlayer2Active(true);
-            }}
+            btnText={isPlayer1Active ? "Pause" : "Play"}
           />
         </div>
         <div className="right">
           <PlayerInfo
             player={player2}
+            btnText={isPlayer2Active ? "Pause" : "Play"}
             startCountDown={() => {
-              setIsPlayer1Active(false);
-              setIsPlayer2Active(true);
-            }}
-            pauseCountDown={() => {
-              setIsPlayer2Active(false);
-              setIsPlayer1Active(true);
+              setIsPlayer2Active(!isPlayer2Active);
+              setIsPlayer1Active(!player1.active);
             }}
           />
         </div>

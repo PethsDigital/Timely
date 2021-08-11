@@ -2,11 +2,14 @@ import {useContext} from "react";
 import {TimeContext} from "../contexts/TimeContextWrap";
 import Input from "./Input";
 
-const SetTime = () => {
+const SetTime = ({err}) => {
   const {time, timeDispatch} = useContext(TimeContext);
   return (
     <div className="setTime">
-      <h3>Fill in a time limit in the format 00:00:00</h3>
+      <h3>
+        Fill in a time limit in the format{" "}
+        <span className="time">00:00:00</span>
+      </h3>
       <br />
       <div className="otp-input-wrap">
         <Input
@@ -60,6 +63,7 @@ const SetTime = () => {
           maxLength="2"
         />
       </div>
+      {err && <small style={{color: "red"}}>Invalid Time input</small>}
       <button type="submit" className="btn">
         Start
       </button>

@@ -11,16 +11,16 @@ function Form() {
   const {player1, player2, playerDispatch1, playerDispatch2} =
     useContext(PlayerContext);
   const [showNext, setShowNext] = useState(1);
-
+  const [err, seterr] = useState(false);
   const handleFormSubmit = e => {
     e.preventDefault();
-    if (parseInt(time.seconds) > 0) {
-      let seconds =
-        parseInt(time.hours) * 3600 +
-        parseInt(time.minutes) * 60 +
-        parseInt(time.seconds);
+    let seconds =
+      parseInt(time.hours) * 3600 +
+      parseInt(time.minutes) * 60 +
+      parseInt(time.seconds);
+    if (seconds > 0) {
       timeDispatch({type: "updateTimeLimit", value: seconds});
-
+      seterr(false);
       localStorage.setItem("timeLimit", seconds);
       localStorage.setItem("player1TimeLeft", seconds);
       localStorage.setItem("player2TimeLeft", seconds);
@@ -42,13 +42,15 @@ function Form() {
         )} : ${twoDigits(time.seconds)}`,
       });
       history.push("play");
+    } else {
+      seterr(true);
     }
   };
 
   return (
     <form onSubmit={handleFormSubmit} action="">
       {showNext === 1 && <SetPlayer showTime={() => setShowNext(2)} />}
-      {showNext === 2 && <SetTime />}
+      {showNext === 2 && <SetTime err={err} />}
     </form>
   );
 }

@@ -5,6 +5,7 @@
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
 a {
@@ -107,6 +108,10 @@ textarea {
   font-size: calc(10px + 2vmin);
   background-color: white;
   color: #222;
+}
+.App .time,
+.App input[type=number] {
+  font-family: "Orbitron", sans-serif;
 }
 .App .btn {
   background: #222;
@@ -293,7 +298,10 @@ textarea {
 }
 .App main .split .playerInfo .btn-wrap {
   padding: 0;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 @media only screen and (max-width: 500px) {
   .App main .split .playerInfo .btn-wrap {
@@ -302,7 +310,7 @@ textarea {
 }
 .App main .split .playerInfo .btn-wrap .btn {
   margin: 0rem;
-  width: 47%;
+  width: 60%;
 }
 @media only screen and (max-width: 500px) {
   .App main .split .playerInfo .btn-wrap .btn {

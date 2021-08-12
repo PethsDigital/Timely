@@ -21,6 +21,10 @@ function App() {
                 </Route>
               </Switch>
             </main>
+            <div>
+              <span> Made with </span> <span class="heart">❤️</span>{" "}
+              <span>by Peths Digital. &copy; {new Date().getFullYear()}</span>
+            </div>
           </Player>
         </TimeContextWrap>
       </div>

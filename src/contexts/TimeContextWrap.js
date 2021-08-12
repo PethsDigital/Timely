@@ -3,9 +3,9 @@ import {createContext, useReducer} from "react";
 export const TimeContext = createContext();
 
 const initialState = {
-  hours: "",
-  minutes: "",
-  seconds: "",
+  hours: "00",
+  minutes: "00",
+  seconds: "00",
   timeLimit:
     localStorage.getItem("timeLimit") > 0
       ? localStorage.getItem("timeLimit")

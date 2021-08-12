@@ -134,10 +134,35 @@ textarea {
   margin-left: auto;
   margin-right: 2rem;
 }
+@media only screen and (max-width: 500px) {
+  .App .btn {
+    margin-right: 1rem;
+  }
+}
 .App a.btn {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+}
+.App .heart {
+  color: #f44336;
+  font-size: 1.4rem;
+  -webkit-animation: heartBeat 0.6s ease-in infinite alternate;
+          animation: heartBeat 0.6s ease-in infinite alternate;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+@-webkit-keyframes heartBeat {
+  to {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+@keyframes heartBeat {
+  to {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
 }
 .App .btn-wrap {
   display: -webkit-box;
@@ -229,7 +254,7 @@ textarea {
   }
 }
 .App main {
-  min-height: 100vh;
+  min-height: calc(100vh - 2rem);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
